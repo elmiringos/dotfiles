@@ -1,0 +1,8 @@
+# tmux
+alias t=tmux
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+alias tks='tmux kill-server'
+
+# vim
+alias v='nvim'
