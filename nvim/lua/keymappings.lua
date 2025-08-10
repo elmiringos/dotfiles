@@ -34,10 +34,6 @@ keymap('n', 'ат', ':tabe<CR>')
 keymap('n', 'fe', ':tab split<CR>')
 keymap('n', 'ау', ':tab split<CR>')
 
--- Config reload & save
-keymap('n', '<leader>vr', ':source $MYVIMRC<CR>')
-keymap('n', '<leader>vl', ':vsp $MYVIMRC<CR>')
-
 -- Better window movement
 keymap("n", "<C-l>", "<C-w>l", { silent = true })
 keymap("n", "<C-h>", "<C-w>h", { silent = true })

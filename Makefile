@@ -19,3 +19,7 @@ nvim-configure:
 
 sync-dotfiles:
 	ln -sf $(PWD)/gitconfig ~/.gitconfig
+
+install-tmux-plugin-manager:
+	- mkdir ~/.tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

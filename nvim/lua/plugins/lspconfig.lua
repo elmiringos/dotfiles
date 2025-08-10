@@ -1,17 +1,23 @@
 local lsp = require('lsp-zero')
 
 require('mason').setup({})
-require("mason-lspconfig").setup({
+require('mason-lspconfig').setup({
   ensure_installed = {
     "rust_analyzer",
     "gopls",
-
-    "dockerls",         -- Docker
-    "yamlls",           -- Kubernetes YAML
-    "ruby_lsp",         -- Ruby (alternative: "solargraph", "sorbet")
-    "pyright",          -- Python
-    "sqlls",            -- SQL
+    "dockerls",
+    "yamlls",
+    "ruby_lsp",
+    "pyright",
+    "sqlls",
   }
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
 })
 
 lsp.set_sign_icons(

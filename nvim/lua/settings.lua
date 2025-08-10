@@ -47,3 +47,33 @@ end
 for k, v in pairs(globals) do
   vim.g[k] = v
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "ruby", "python", "rust", "c", "cpp", "go", "javascript", "yaml", "lua" },
+  callback = function(args)
+    local ft = args.match
+
+    -- Default to 4 spaces
+    local indent = 4
+
+    -- Override to 2 spaces for specific languages
+    if vim.tbl_contains({ "javascript", "yaml", "ruby" }, ft) then
+      indent = 2
+    end
+
+    -- Go uses tabs by convention
+    if ft == "go" then
+      vim.opt_local.expandtab = false
+      vim.opt_local.tabstop = 4
+      vim.opt_local.shiftwidth = 4
+      vim.opt_local.softtabstop = 4
+      return
+    end
+
+    -- Apply space-based indentation
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = indent
+    vim.opt_local.shiftwidth = indent
+    vim.opt_local.softtabstop = indent
+  end,
+})

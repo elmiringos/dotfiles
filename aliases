@@ -3,6 +3,7 @@ alias t=tmux
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tks='tmux kill-server'
+alias tsw='tmux switch -t'
 
 # vim
 alias v='nvim'
