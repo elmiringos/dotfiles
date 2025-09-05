@@ -33,6 +33,9 @@ keymap('n', 'ат', ':tabe<CR>')
 -- same file in new tab
 keymap('n', 'fe', ':tab split<CR>')
 keymap('n', 'ау', ':tab split<CR>')
+-- autosave
+keymap("n", "<leader>a", ":ASToggle<CR>", {})
+
 
 -- Better window movement
 keymap("n", "<C-l>", "<C-w>l", { silent = true })

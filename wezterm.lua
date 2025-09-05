@@ -58,7 +58,7 @@ return {
   -- For 13 inch display
   -- font_size = 18.0,
   -- For bigger display
-  font_size = 18.0,
+  font_size = 16.0,
 
   -- color_scheme = 'Solarized (light) (terminal.sexy)',
   color_scheme = 'Solarized Light (Gogh)',
