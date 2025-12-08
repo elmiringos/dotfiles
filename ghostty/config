@@ -1,0 +1,21 @@
+font-family = Anonymous Pro
+font-style = Bold
+font-size = 16
+
+cursor-style = block
+mouse-hide-while-typing = true
+
+theme = iTerm2 Solarized Light
+
+window-colorspace = "display-p3"
+window-padding-x = 5
+
+cursor-invert-fg-bg = true
+cursor-style-blink = false
+cursor-style=block
+shell-integration-features = no-cursor
+
+palette = 7=#eee8d5
+palette = 15=#fdf6e3
+palette = 10=#859900
+palette = 12=#268bd2

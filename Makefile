@@ -1,6 +1,8 @@
 sync-symlinks:
 	mkdir -p ~/.config/wezterm
 	ln -sf $(PWD)/wezterm.lua ~/.config/wezterm/wezterm.lua
+	mkdir -p ~/.config/ghostty
+	ln -sf $(PWD)/ghostty/config ~/.config/ghostty/config
 	ln -sf $(PWD)/tmux.conf ~/.tmux.conf
 	ln -sf $(PWD)/aliases ~/.aliases
 	ln -sf $(PWD)/gitconfig ~/.gitconfig
