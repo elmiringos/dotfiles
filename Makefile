@@ -18,6 +18,23 @@ nvim-configure:
 	rm -rf ~/.config/nvim || exit 0
 	mkdir -p ~/.config
 	ln -snf $(PWD)/nvim ~/.config/nvim
+	@echo "Configured Neovim (full) at ~/.config/nvim"
+
+nvim-configure-minimal:
+	rm -rf nvim/plugin || exit 0
+	rm -rf nvim12/plugin || exit 0
+	rm -rf ~/.local/share/nvim || exit 0
+	rm -rf ~/.config/nvim || exit 0
+	mkdir -p ~/.config
+	ln -snf $(PWD)/nvim12 ~/.config/nvim
+	@echo "Configured Neovim (minimal) at ~/.config/nvim"
+
+nvim-status:
+	@if [ -L ~/.config/nvim ]; then \
+		echo "Current Neovim config: $$(readlink ~/.config/nvim)"; \
+	else \
+		echo "Neovim not configured"; \
+	fi
 
 sync-dotfiles:
 	ln -sf $(PWD)/gitconfig ~/.gitconfig

@@ -5,7 +5,7 @@ font-size = 16
 cursor-style = block
 mouse-hide-while-typing = true
 
-theme = iTerm2 Solarized Light
+theme = GruvboxDark
 
 window-colorspace = "display-p3"
 window-padding-x = 5
@@ -15,7 +15,14 @@ cursor-style-blink = false
 cursor-style=block
 shell-integration-features = no-cursor
 
-palette = 7=#eee8d5
-palette = 15=#fdf6e3
-palette = 10=#859900
-palette = 12=#268bd2
+palette = 1=#7c6f64
+palette = 3=#bdae93
+palette = 4=#7c6f64
+palette = 5=#7c6f64
+palette = 6=#7c6f64
+palette = 9=#7c6f64
+palette = 11=#bdae93
+palette = 12=#7c6f64
+palette = 13=#7c6f64
+palette = 14=#7c6f64
+palette = 15=#ebdbb2

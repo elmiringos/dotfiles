@@ -36,3 +36,6 @@ set -gx EDITOR nvim
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 source "$HOME/.cargo/env.fish"
+
+set -gx PATH "$HOME/.local/share/bob/nvim-bin" $PATH
+export PATH="$HOME/.local/bin:$PATH"
