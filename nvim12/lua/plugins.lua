@@ -16,27 +16,27 @@ vim.pack.add({
 require("mason").setup({})
 require("gitsigns").setup({
   signs = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
+    add          = { text = "*" },
+    change       = { text = "*" },
+    delete       = { text = "_" },
+    topdelete    = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked    = { text = "┆" },
   },
   signs_staged = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
+    add          = { text = "+" },
+    change       = { text = "+" },
+    delete       = { text = "_" },
+    topdelete    = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked    = { text = "┆" },
   },
   signs_staged_enable = true,
   signcolumn = true,
 })
 
 
-require('nvim-treesitter').setup({
+require("nvim-treesitter").setup({
   ensure_installed = {
     "lua",
     "vim",
@@ -112,7 +112,7 @@ local flat_theme = {
 
 require("lualine").setup({
   options = {
-    theme = flat_theme,  -- use the flat theme
+    theme = flat_theme,
     icons_enabled = false,
     component_separators = "",
     section_separators = "",
@@ -140,38 +140,19 @@ require("oil-git-status").setup({
 })
 
 -- FZF Configuration
-require("fzf-lua").setup({
-  winopts = {
-    height = 0.9,
-    width = 0.9,
-    preview = { delay = 100 },
-  },
+require("fzf-lua").setup(
+  {
+    winopts = {
+      height = 0.9,
+      width = 0.9,
+      preview = {
+        delay = 100
+      },
+    },
 
-  fzf_colors = {
-    ["fg"]      = { "fg", "Normal" },
-    ["bg"]      = { "bg", "Normal" },
-    ["hl"]      = { "fg", "Comment" },
-    ["fg+"]     = { "fg", "CursorLine" },
-    ["bg+"]     = { "bg", "CursorLine" },
-    ["hl+"]     = { "fg", "CursorLine" },
-    ["info"]    = { "fg", "Comment" },
-    ["prompt"]  = { "fg", "Comment" },
-    ["pointer"] = { "fg", "Comment" },
-    ["marker"]  = { "fg", "Comment" },
-    ["spinner"] = { "fg", "Comment" },
-    ["header"]  = { "fg", "Comment" },
-    ["gutter"]  = "-1",
-  },
-
-  hls = {
-    normal          = "Normal",         -- default fg/bg
-    border          = "Normal",         -- simple border
-    title           = "Normal",         -- no bold title
-    preview_normal  = "Normal",         -- preview fg/bg
-    preview_border  = "Normal",         -- preview border
-    preview_title   = "Normal",         -- preview title
-  },
-})
+    fzf_colors = true,  -- Auto-generate from Neovim colorscheme
+  }
+)
 
 -- Smear Cursor Configuration
 require("smear_cursor").setup({
