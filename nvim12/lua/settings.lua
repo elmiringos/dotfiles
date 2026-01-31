@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 local options = {
   -- Line numbers
   number = true,
@@ -23,6 +25,10 @@ local options = {
   smartcase = true,
   hlsearch = true,
   incsearch = true,
+
+  -- Whitespace visualization
+  list = true,
+  lcs = "tab:>¬,trail:~,space:·",
 
   -- Files
   autoread = true,

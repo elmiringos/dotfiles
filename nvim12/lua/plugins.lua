@@ -5,9 +5,10 @@ vim.pack.add({
   { src = "williamboman/mason-lspconfig.nvim" },
   { src = "nvim-treesitter/nvim-treesitter" },
   { src = "nvim-lualine/lualine.nvim" },
-  { src = "maxmx03/solarized.nvim" },
+  { src = "https://github.com/ishan9299/nvim-solarized-lua" },
   { src = "ellisonleao/gruvbox.nvim" },
   { src = "stevearc/oil.nvim" },
+  { src = "refractalize/oil-git-status.nvim" },
   { src = "ibhagwan/fzf-lua", rev = "7e53aeb" },
   { src = "sphamba/smear-cursor.nvim" },
 })
@@ -80,18 +81,41 @@ require('nvim-treesitter').setup({
   },
 })
 
+-- define a simple flat theme
+local flat_theme = {
+  normal = {
+    a = { fg = "#ffffff", bg = "#000000" },
+    b = { fg = "#ffffff", bg = "#000000" },
+    c = { fg = "#ffffff", bg = "#000000" },
+  },
+  insert = {
+    a = { fg = "#ffffff", bg = "#000000" },
+    b = { fg = "#ffffff", bg = "#000000" },
+    c = { fg = "#ffffff", bg = "#000000" },
+  },
+  visual = {
+    a = { fg = "#ffffff", bg = "#000000" },
+    b = { fg = "#ffffff", bg = "#000000" },
+    c = { fg = "#ffffff", bg = "#000000" },
+  },
+  replace = {
+    a = { fg = "#ffffff", bg = "#000000" },
+    b = { fg = "#ffffff", bg = "#000000" },
+    c = { fg = "#ffffff", bg = "#000000" },
+  },
+  inactive = {
+    a = { fg = "#777777", bg = "#000000" },
+    b = { fg = "#777777", bg = "#000000" },
+    c = { fg = "#777777", bg = "#000000" },
+  }
+}
+
 require("lualine").setup({
   options = {
-    theme = "gruvbox",
+    theme = flat_theme,  -- use the flat theme
     icons_enabled = false,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    component_separators = "",
+    section_separators = "",
   },
 })
 
@@ -99,32 +123,54 @@ require("oil").setup({
   view_options = {
     show_hidden = true,
   },
+  win_options = {
+    signcolumn = "yes:2",
+  },
+})
+
+require("oil-git-status").setup({
+  symbols = {
+    index = {
+      ["!"] = "",
+    },
+    working_tree = {
+      ["!"] = "",
+    },
+  },
 })
 
 -- FZF Configuration
-require('fzf-lua').setup({
+require("fzf-lua").setup({
   winopts = {
     height = 0.9,
     width = 0.9,
-    preview = {
-      delay = 100
-    },
+    preview = { delay = 100 },
   },
+
   fzf_colors = {
-    ['fg']      = { 'fg', 'CursorLine' },
-    ['bg']      = { 'bg', 'Normal' },
-    ['hl']      = { 'fg', 'Comment' },
-    ['fg+']     = { 'fg', 'Normal' },
-    ['bg+']     = { 'bg', 'CursorLine' },
-    ['hl+']     = { 'fg', 'Statement' },
-    ['info']    = { 'fg', 'PreProc' },
-    ['prompt']  = { 'fg', 'Conditional' },
-    ['pointer'] = { 'fg', 'Exception' },
-    ['marker']  = { 'fg', 'Keyword' },
-    ['spinner'] = { 'fg', 'Label' },
-    ['header']  = { 'fg', 'Comment' },
-    ['gutter']  = { 'bg', 'Normal' },
-  }
+    ["fg"]      = { "fg", "Normal" },
+    ["bg"]      = { "bg", "Normal" },
+    ["hl"]      = { "fg", "Comment" },
+    ["fg+"]     = { "fg", "CursorLine" },
+    ["bg+"]     = { "bg", "CursorLine" },
+    ["hl+"]     = { "fg", "CursorLine" },
+    ["info"]    = { "fg", "Comment" },
+    ["prompt"]  = { "fg", "Comment" },
+    ["pointer"] = { "fg", "Comment" },
+    ["marker"]  = { "fg", "Comment" },
+    ["spinner"] = { "fg", "Comment" },
+    ["header"]  = { "fg", "Comment" },
+    ["gutter"]  = "-1",
+  },
+
+  hls = {
+    normal          = "Normal",         -- default fg/bg
+    border          = "Normal",         -- simple border
+    title           = "Normal",         -- no bold title
+    preview_normal  = "Normal",         -- preview fg/bg
+    preview_border  = "Normal",         -- preview border
+    preview_title   = "Normal",         -- preview title
+  },
 })
 
 -- Smear Cursor Configuration

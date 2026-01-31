@@ -36,9 +36,6 @@ nvim-status:
 		echo "Neovim not configured"; \
 	fi
 
-sync-dotfiles:
-	ln -sf $(PWD)/gitconfig ~/.gitconfig
-
 install-tmux-plugin-manager:
 	- mkdir ~/.tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
