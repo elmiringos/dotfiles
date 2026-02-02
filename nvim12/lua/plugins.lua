@@ -1,17 +1,21 @@
 vim.pack.add({
-  { src = "lewis6991/gitsigns.nvim" },
-  { src = "mason-org/mason.nvim" },
-  { src = "neovim/nvim-lspconfig" },
-  { src = "williamboman/mason-lspconfig.nvim" },
-  { src = "nvim-treesitter/nvim-treesitter" },
-  { src = "nvim-lualine/lualine.nvim" },
+  { src = "https://github.com/lewis6991/gitsigns.nvim" },
+  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+  { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/ishan9299/nvim-solarized-lua" },
-  { src = "ellisonleao/gruvbox.nvim" },
-  { src = "stevearc/oil.nvim" },
-  { src = "refractalize/oil-git-status.nvim" },
-  { src = "ibhagwan/fzf-lua", rev = "7e53aeb" },
-  { src = "sphamba/smear-cursor.nvim" },
+  { src = "https://github.com/ellisonleao/gruvbox.nvim" },
+  { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/refractalize/oil-git-status.nvim" },
+  { src = "https://github.com/ibhagwan/fzf-lua", rev = "7e53aeb" },
+  { src = "https://github.com/sphamba/smear-cursor.nvim" },
 })
+
+vim.cmd.packadd("nvim-treesitter")
+vim.cmd.packadd("nvim-treesitter-textobjects")
 
 require("mason").setup({})
 require("gitsigns").setup({
@@ -34,7 +38,6 @@ require("gitsigns").setup({
   signs_staged_enable = true,
   signcolumn = true,
 })
-
 
 require("nvim-treesitter").setup({
   ensure_installed = {
@@ -80,6 +83,39 @@ require("nvim-treesitter").setup({
     disable = { "python" },
   },
 })
+
+-- Textobjects setup (new API)
+require("nvim-treesitter-textobjects").setup({
+  select = {
+    lookahead = true,
+  },
+  move = {
+    set_jumps = true,
+  },
+})
+
+-- Textobjects keymaps
+local select = require("nvim-treesitter-textobjects.select")
+local move = require("nvim-treesitter-textobjects.move")
+
+-- Select textobjects
+vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ac", function() select.select_textobject("@class.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ic", function() select.select_textobject("@class.inner", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "aa", function() select.select_textobject("@parameter.outer", "textobjects") end)
+vim.keymap.set({ "x", "o" }, "ia", function() select.select_textobject("@parameter.inner", "textobjects") end)
+
+-- Move to next/previous
+vim.keymap.set({ "n", "x", "o" }, "]f", function() move.goto_next_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[f", function() move.goto_previous_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]F", function() move.goto_next_end("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[F", function() move.goto_previous_end("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]c", function() move.goto_next_start("@class.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[c", function() move.goto_previous_start("@class.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]a", function() move.goto_next_start("@parameter.inner", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[a", function() move.goto_previous_start("@parameter.inner", "textobjects") end)
+
 
 -- define a simple flat theme
 local flat_theme = {

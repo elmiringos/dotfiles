@@ -17,9 +17,9 @@ keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = 'Move to top window' })
 keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = 'Move to right window' })
 
 -- Tab navigation
-keymap('n', 'fn', ':tabnew<CR>', { desc = 'New tab' })
-keymap('n', 'fj', ':tabprev<CR>', { desc = 'Previous tab' })
-keymap('n', 'fk', ':tabnext<CR>', { desc = 'Next tab' })
+keymap('n', 'tn', ':tabnew<CR>', { desc = 'New tab' })
+keymap('n', 'tj', ':tabprev<CR>', { desc = 'Previous tab' })
+keymap('n', 'tk', ':tabnext<CR>', { desc = 'Next tab' })
 keymap('n', 'tq', ':tabclose<CR>', { desc = 'Close tab' })
 
 -- Search

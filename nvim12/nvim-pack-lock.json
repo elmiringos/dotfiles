@@ -40,6 +40,10 @@
       "rev": "5a7e5638e7d220575b1c22c8a2e099b52231886e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "oil-git-status.nvim": {
       "rev": "4b5cf53842c17a09420919e655a6a559da3112d7",
       "src": "https://github.com/refractalize/oil-git-status.nvim"
