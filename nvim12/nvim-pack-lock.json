@@ -59,6 +59,10 @@
     "solarized.nvim": {
       "rev": "c0dfe1cbfabd93b546baf5f1408f5df7e02e2050",
       "src": "https://github.com/maxmx03/solarized.nvim"
+    },
+    "typst-preview.nvim": {
+      "rev": "bf5d5eaf23bbfcca9f98a24ed29bd084abf89bf2",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
     }
   }
 }

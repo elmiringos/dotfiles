@@ -46,6 +46,9 @@ keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Previous 
 keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'Next diagnostic' })
 keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { desc = 'Diagnostic location list' })
 
+-- Typst Preview
+keymap('n', '<leader>tp', ':TypstPreview<CR>', { desc = 'Typst preview' })
+
 -- Common
 keymap("n", 'H', '^')
 keymap("n", 'L', '$')

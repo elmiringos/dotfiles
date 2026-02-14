@@ -12,6 +12,7 @@ vim.pack.add({
   { src = "https://github.com/refractalize/oil-git-status.nvim" },
   { src = "https://github.com/ibhagwan/fzf-lua", rev = "7e53aeb" },
   { src = "https://github.com/sphamba/smear-cursor.nvim" },
+  { src = "https://github.com/chomosuke/typst-preview.nvim" },
 })
 
 vim.cmd.packadd("nvim-treesitter")
@@ -62,6 +63,7 @@ require("nvim-treesitter").setup({
     "fish",
     "git_config",
     "gitignore",
+    "typst",
   },
 
   auto_install = true,
@@ -200,3 +202,6 @@ require("smear_cursor").setup({
   smear_insert_mode = true,
   legacy_computing_symbols_support = false,
 })
+
+-- Typst Preview Configuration
+require("typst-preview").setup({})

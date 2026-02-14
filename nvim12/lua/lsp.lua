@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
     "ts_ls",
     "pyright",
     "clangd",
+    "tinymist"
   },
   automatic_installation = true,
 })
@@ -173,6 +174,7 @@ vim.lsp.enable({
   "ts_ls",
   "pyright",
   "clangd",
+  "tinymist"
 })
 
 -- Enhanced Diagnostic Configuration
