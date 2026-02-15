@@ -169,10 +169,10 @@ require("oil").setup({
 require("oil-git-status").setup({
   symbols = {
     index = {
-      ["!"] = "",
+      ["!"] = "i",
     },
     working_tree = {
-      ["!"] = "",
+      ["!"] = "i",
     },
   },
 })
