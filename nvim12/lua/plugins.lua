@@ -13,10 +13,12 @@ vim.pack.add({
   { src = "https://github.com/ibhagwan/fzf-lua", rev = "7e53aeb" },
   { src = "https://github.com/sphamba/smear-cursor.nvim" },
   { src = "https://github.com/chomosuke/typst-preview.nvim" },
+  { src = "https://github.com/christoomey/vim-tmux-navigator" },
 })
 
 vim.cmd.packadd("nvim-treesitter")
 vim.cmd.packadd("nvim-treesitter-textobjects")
+vim.cmd.packadd("vim-tmux-navigator")
 
 require("mason").setup({})
 require("gitsigns").setup({

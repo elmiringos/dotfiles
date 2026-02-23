@@ -11,10 +11,7 @@ keymap('n', 'fs', ':split<CR>', { desc = 'Horizontal split' })
 keymap('t', 'fq', "<C-\\><C-n>", { desc = 'Exit terminal mode' })
 
 -- Window navigation
-keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = 'Move to left window' })
-keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = 'Move to bottom window' })
-keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = 'Move to top window' })
-keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = 'Move to right window' })
+-- C-h/j/k/l navigation handled by vim-tmux-navigator plugin
 
 -- Tab navigation
 keymap('n', 'tn', ':tabnew<CR>', { desc = 'New tab' })
