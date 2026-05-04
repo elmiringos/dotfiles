@@ -7,3 +7,8 @@ alias tsw='tmux switch -t'
 
 # vim
 alias v='nvim'
+
+# claude code
+alias cldp='claude --permission-mode plan'
+alias cldw='CLAUDE_CONFIG_DIR=~/.claude-work claude --permission-mode plan'
+alias cld="echo 'Use specific commands: cldp - personal or cldw - work'"
