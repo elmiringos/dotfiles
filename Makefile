@@ -1,3 +1,12 @@
+install:
+	bash bootstrap.sh
+
+brew-dump:
+	brew bundle dump --file=Brewfile --force
+
+brew-install:
+	brew bundle install --file=Brewfile --no-lock
+
 sync-symlinks:
 	mkdir -p ~/.config/wezterm
 	ln -sf $(PWD)/wezterm.lua ~/.config/wezterm/wezterm.lua
@@ -6,6 +15,7 @@ sync-symlinks:
 	ln -sf $(PWD)/tmux.conf ~/.tmux.conf
 	ln -sf $(PWD)/aliases ~/.aliases
 	ln -sf $(PWD)/gitconfig ~/.gitconfig
+	ln -sf $(PWD)/tool-versions ~/.tool-versions
 	mkdir -p ~/.config/fish/functions/
 	ln -sf $(PWD)/fish/config.fish ~/.config/fish/config.fish
 	ln -sf $(PWD)/fish/fish_variables ~/.config/fish/fish_variables
