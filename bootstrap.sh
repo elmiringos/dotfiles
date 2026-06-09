@@ -23,7 +23,7 @@ fi
 # ── Brew bundle ───────────────────────────────────────────────────────────────
 if [[ -f "$DOTFILES_DIR/Brewfile" ]]; then
   info "Installing packages from Brewfile..."
-  brew bundle install --file="$DOTFILES_DIR/Brewfile" --no-lock
+  brew bundle install --file="$DOTFILES_DIR/Brewfile"
   success "Brew packages installed"
 else
   warn "No Brewfile found, skipping"
